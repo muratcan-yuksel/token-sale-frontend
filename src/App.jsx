@@ -1,10 +1,15 @@
-import LeftPage from "./components/LeftPage.jsx";
-// import RightPage from './components/Right.jsx';
+import BuyTokens from "./components/BuyTokens.jsx";
+import ConnectWallet from "./components/ConnectWallet.jsx";
 
+import { useReadContract, useAccount, useBalance } from "wagmi";
 const App = () => {
+  const { address, status, isConnected } = useAccount();
+
   return (
-    <div>
-      <LeftPage />
+    <div style={{}}>
+      <h1>Awesome Token Sale</h1>
+      {status === "connected" && <BuyTokens />}
+      {status !== "connected" && <ConnectWallet />}{" "}
     </div>
   );
 };
