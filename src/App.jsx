@@ -6,7 +6,14 @@ const App = () => {
   const { address, status, isConnected } = useAccount();
 
   return (
-    <div style={{}}>
+    <div
+      style={{
+        display: "flex",
+        flexDirection: "column",
+        alignItems: "center",
+      }}
+    >
+      {" "}
       <h1>Awesome Token Sale</h1>
       {status === "connected" && <BuyTokens />}
       {status !== "connected" && <ConnectWallet />}{" "}

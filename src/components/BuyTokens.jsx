@@ -5,21 +5,28 @@ const BuyTokens = () => {
   const { writeContract, failureReason } = useWriteContract();
   console.log(amount);
 
-  const callDepositLPT = async () => {
-    try {
-      writeContract({
-        abi: "abi",
-        address: "tokensale address",
-        functionName: "buyWhitesaleTokens",
-        args: [parseUnits(LPTAmount, 18)],
-      });
-    } catch (error) {
-      console.log(error);
-    }
-  };
+  // const callDepositLPT = async () => {
+  //   try {
+  //     writeContract({
+  //       abi: "abi",
+  //       address: "tokensale address",
+  //       functionName: "buyWhitesaleTokens",
+  //       args: [parseUnits(LPTAmount, 18)],
+  //     });
+  //   } catch (error) {
+  //     console.log(error);
+  //   }
+  // };
 
   return (
-    <div style={{ maxWidth: "300px" }}>
+    <div
+      style={{
+        maxWidth: "300px",
+        display: "flex",
+        flexDirection: "column",
+        alignItems: "center",
+      }}
+    >
       <h2>Buy Tokens</h2>
       <div
         style={{
@@ -33,8 +40,28 @@ const BuyTokens = () => {
           onChange={(e) => {
             setAmount(e.target.value);
           }}
+          style={{
+            padding: "10px",
+            borderRadius: "5px",
+            border: "1px solid #ccc",
+            marginBottom: "10px",
+          }}
         />
-        <button>Buy</button>
+        <button
+          style={{
+            padding: "10px",
+            borderRadius: "5px",
+            border: "1px solid #ccc",
+            marginBottom: "10px",
+            backgroundColor: "#90caf9",
+            color: "black",
+            cursor: "pointer",
+            fontWeight: "bold",
+            fontSize: "15px",
+          }}
+        >
+          Buy
+        </button>
       </div>
     </div>
   );
