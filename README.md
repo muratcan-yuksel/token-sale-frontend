@@ -18,7 +18,7 @@ So, this project contains everything you need to start your ICO by yourself with
 
 Just check the smart contracts provided above, and change the logic accordingly.
 
-You don't need to change anything at all if you want a simple ICO with whitelist functionalities. Just change the styling and you should be okay.
+You don't need to change anything at all if you want a simple ICO with whitelist functionalities. Just change the style and you should be okay.
 
 ### view functions
 

@@ -1,5 +1,8 @@
 import BuyTokens from "./components/BuyTokens.jsx";
 import ConnectWallet from "./components/ConnectWallet.jsx";
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+
+const queryClient = new QueryClient();
 
 import { useReadContract, useAccount, useBalance } from "wagmi";
 const App = () => {
@@ -13,10 +16,12 @@ const App = () => {
         alignItems: "center",
       }}
     >
-      {" "}
-      <h1>Awesome Token Sale</h1>
-      {status === "connected" && <BuyTokens />}
-      {status !== "connected" && <ConnectWallet />}{" "}
+      <QueryClientProvider client={queryClient}>
+        {" "}
+        <h1>Awesome Token Sale</h1>
+        {status === "connected" && <BuyTokens />}
+        {status !== "connected" && <ConnectWallet />}{" "}
+      </QueryClientProvider>
     </div>
   );
 };
