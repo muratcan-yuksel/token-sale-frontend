@@ -51,3 +51,7 @@ You don't need to change anything at all if you want a simple ICO with whitelist
 
 - buyWhitesaleTokens
 - buyTokens
+
+sepolia awtoken address=> 0xd25D204F1898DC97333409703b391Af8494105D7
+
+sepolia tokensale address=> 0xA809d43BB41F3b06beA6c3B69968d6e85bA394a0

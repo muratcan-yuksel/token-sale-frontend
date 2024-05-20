@@ -1,4 +1,4 @@
-export const awtokenAddress = "0x5FbDB2315678afecb367f032d93F642f64180aa3";
+export const awtokenAddress = "0xd25D204F1898DC97333409703b391Af8494105D7";
 export const awtokenAbi = [
   {
     inputs: [],

@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { useWriteContract, useDisconnect } from "wagmi";
+import { useWriteContract, useDisconnect, useReadContract } from "wagmi";
 import { awtokenAbi, awtokenAddress } from "../ABI/awtokenAbi.js";
 import { tokensaleAddress, tokensaleAbi } from "../ABI/tokensaleAbi.js";
 const BuyTokens = () => {
@@ -8,11 +8,44 @@ const BuyTokens = () => {
   const { disconnect } = useDisconnect();
   console.log(amount);
 
+  const tokensLeft = useReadContract({
+    abi: tokensaleAbi,
+    address: tokensaleAddress,
+    functionName: "getTokenSold",
+  });
+  console.log(tokensLeft?.data);
+
+  const whitesaleStatus = useReadContract({
+    abi: tokensaleAbi,
+    address: tokensaleAddress,
+    functionName: "isWhiteSaleActive",
+  });
+  console.log(whitesaleStatus?.data);
+
+  const saleStatus = useReadContract({
+    abi: tokensaleAbi,
+    address: tokensaleAddress,
+    functionName: "isSaleActive",
+  });
+
+  const tokenPrice = useReadContract({
+    abi: tokensaleAbi,
+    address: tokensaleAddress,
+    functionName: "getTokenPrice",
+  });
+
+  const pauseStatus = useReadContract({
+    abi: tokensaleAbi,
+    address: tokensaleAddress,
+    functionName: "getPaused",
+  });
+  console.log(pauseStatus?.data);
+
   const callBuyWhitesaleTokens = async () => {
     try {
       writeContract({
-        abi: "abi",
-        address: "tokensale address",
+        abi: tokensaleAbi,
+        address: tokensaleAddress,
         functionName: "buyWhitesaleTokens",
         // args: [parseUnits(LPTAmount, 18)],
       });
@@ -24,8 +57,8 @@ const BuyTokens = () => {
   const callBuyTokens = async () => {
     try {
       writeContract({
-        abi: "abi",
-        address: "tokensale address",
+        abi: tokensaleAbi,
+        address: tokensaleAddress,
         functionName: "buyTokens",
         // args: [parseUnits(LPTAmount, 18)],
       });
@@ -44,6 +77,7 @@ const BuyTokens = () => {
       }}
     >
       <h2>Buy Tokens</h2>
+      <h3>Tokens left: {tokensLeft?.data}</h3>
       <div
         style={{
           display: "flex",
@@ -94,6 +128,7 @@ const BuyTokens = () => {
         >
           Disconnect
         </button>
+        <h2>Whitesale is {whitesaleStatus?.data}</h2>
       </div>
     </div>
   );
