@@ -15,9 +15,54 @@ const Owner = () => {
         functionName: "toggleWhitelistSaleActive",
         // args: [parseUnits(LPTAmount, 18)],
       });
-      if (status === "success") {
-        console.log("success");
-      }
+    } catch (error) {
+      console.log(error);
+    }
+  };
+  const toggleSaleActive = async () => {
+    try {
+      writeContract({
+        abi: tokensaleAbi,
+        address: tokensaleAddress,
+        functionName: "toggleSaleActive",
+        // args: [parseUnits(LPTAmount, 18)],
+      });
+    } catch (error) {
+      console.log(error);
+    }
+  };
+  const togglePause = async () => {
+    try {
+      writeContract({
+        abi: tokensaleAbi,
+        address: tokensaleAddress,
+        functionName: "togglePause",
+        // args: [parseUnits(LPTAmount, 18)],
+      });
+    } catch (error) {
+      console.log(error);
+    }
+  };
+  const withdrawToken = async () => {
+    try {
+      writeContract({
+        abi: tokensaleAbi,
+        address: tokensaleAddress,
+        functionName: "withdrawToken",
+        // args: [parseUnits(LPTAmount, 18)],
+      });
+    } catch (error) {
+      console.log(error);
+    }
+  };
+  const withdrawEth = async () => {
+    try {
+      writeContract({
+        abi: tokensaleAbi,
+        address: tokensaleAddress,
+        functionName: "withdrawEth",
+        // args: [parseUnits(LPTAmount, 18)],
+      });
     } catch (error) {
       console.log(error);
     }
@@ -45,6 +90,7 @@ const Owner = () => {
             textAlign: "start",
             margin: "5px 5px",
           }}
+          onClick={() => toggleWhitelistSaleActive()}
         >
           toggleWhitelistSaleActive
         </button>
@@ -54,6 +100,7 @@ const Owner = () => {
             textAlign: "start",
             margin: "5px 5px",
           }}
+          onClick={() => toggleSaleActive()}
         >
           toggleSaleActive
         </button>
@@ -63,6 +110,7 @@ const Owner = () => {
             textAlign: "start",
             margin: "5px 5px",
           }}
+          onClick={() => togglePause()}
         >
           togglePause
         </button>
@@ -72,6 +120,7 @@ const Owner = () => {
             textAlign: "start",
             margin: "5px 5px",
           }}
+          onClick={() => withdrawEth()}
         >
           withdrawEth
         </button>
@@ -81,6 +130,7 @@ const Owner = () => {
             textAlign: "start",
             margin: "5px 5px",
           }}
+          onClick={() => withdrawToken()}
         >
           withdrawToken
         </button>
