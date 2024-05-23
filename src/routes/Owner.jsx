@@ -87,8 +87,18 @@ const Owner = () => {
         <button
           style={{
             minWidth: "200px",
+            maxWidth: "200px",
             textAlign: "start",
             margin: "5px 5px",
+            padding: "10px",
+            borderRadius: "5px",
+            border: "1px solid #ccc",
+            marginBottom: "10px",
+            backgroundColor: "#90caf9",
+            color: "black",
+            cursor: "pointer",
+            fontWeight: "bold",
+            fontSize: "15px",
           }}
           onClick={() => toggleWhitelistSaleActive()}
         >
@@ -97,8 +107,18 @@ const Owner = () => {
         <button
           style={{
             minWidth: "200px",
+            maxWidth: "200px",
             textAlign: "start",
             margin: "5px 5px",
+            padding: "10px",
+            borderRadius: "5px",
+            border: "1px solid #ccc",
+            marginBottom: "10px",
+            backgroundColor: "#90caf9",
+            color: "black",
+            cursor: "pointer",
+            fontWeight: "bold",
+            fontSize: "15px",
           }}
           onClick={() => toggleSaleActive()}
         >
@@ -107,8 +127,18 @@ const Owner = () => {
         <button
           style={{
             minWidth: "200px",
+            maxWidth: "200px",
             textAlign: "start",
             margin: "5px 5px",
+            padding: "10px",
+            borderRadius: "5px",
+            border: "1px solid #ccc",
+            marginBottom: "10px",
+            backgroundColor: "#90caf9",
+            color: "black",
+            cursor: "pointer",
+            fontWeight: "bold",
+            fontSize: "15px",
           }}
           onClick={() => togglePause()}
         >
@@ -117,8 +147,18 @@ const Owner = () => {
         <button
           style={{
             minWidth: "200px",
+            maxWidth: "200px",
             textAlign: "start",
             margin: "5px 5px",
+            padding: "10px",
+            borderRadius: "5px",
+            border: "1px solid #ccc",
+            marginBottom: "10px",
+            backgroundColor: "#90caf9",
+            color: "black",
+            cursor: "pointer",
+            fontWeight: "bold",
+            fontSize: "15px",
           }}
           onClick={() => withdrawEth()}
         >
@@ -127,14 +167,138 @@ const Owner = () => {
         <button
           style={{
             minWidth: "200px",
+            maxWidth: "200px",
             textAlign: "start",
             margin: "5px 5px",
+            padding: "10px",
+            borderRadius: "5px",
+            border: "1px solid #ccc",
+            marginBottom: "10px",
+            backgroundColor: "#90caf9",
+            color: "black",
+            cursor: "pointer",
+            fontWeight: "bold",
+            fontSize: "15px",
           }}
           onClick={() => withdrawToken()}
         >
           withdrawToken
         </button>
-      </div>
+        <div
+          style={{
+            display: "flex",
+            minWidth: "200px",
+            maxWidth: "200px",
+          }}
+        >
+          <input
+            style={{
+              minWidth: "200px",
+              maxWidth: "200px",
+              textAlign: "start",
+              margin: "5px 5px",
+              boxSizing: "border-box",
+            }}
+            type="text"
+          />
+          <button
+            style={{
+              minWidth: "200px",
+              maxWidth: "200px",
+              textAlign: "start",
+              margin: "5px 5px",
+              padding: "10px",
+              borderRadius: "5px",
+              border: "1px solid #ccc",
+              marginBottom: "10px",
+              backgroundColor: "#90caf9",
+              color: "black",
+              cursor: "pointer",
+              fontWeight: "bold",
+              fontSize: "15px",
+            }}
+            onClick={() => addToWhitelist()}
+          >
+            addToWhitelist
+          </button>
+        </div>
+        <div
+          style={{
+            display: "flex",
+            minWidth: "200px",
+            maxWidth: "200px",
+          }}
+        >
+          <input
+            style={{
+              minWidth: "200px",
+              maxWidth: "200px",
+              textAlign: "start",
+              margin: "5px 5px",
+              boxSizing: "border-box",
+            }}
+            type="text"
+          />
+          <button
+            style={{
+              minWidth: "200px",
+              maxWidth: "200px",
+              textAlign: "start",
+              margin: "5px 5px",
+              padding: "10px",
+              borderRadius: "5px",
+              border: "1px solid #ccc",
+              marginBottom: "10px",
+              backgroundColor: "#90caf9",
+              color: "black",
+              cursor: "pointer",
+              fontWeight: "bold",
+              fontSize: "15px",
+            }}
+            onClick={() => removeFromWhitelist()}
+          >
+            removeFromWhitelist
+          </button>
+        </div>{" "}
+        <div
+          style={{
+            display: "flex",
+            minWidth: "200px",
+            maxWidth: "200px",
+          }}
+        >
+          <input
+            style={{
+              minWidth: "200px",
+              maxWidth: "200px",
+              textAlign: "start",
+              margin: "5px 5px",
+              boxSizing: "border-box",
+            }}
+            type="number"
+          />
+          <button
+            style={{
+              minWidth: "200px",
+              maxWidth: "200px",
+              textAlign: "start",
+              margin: "5px 5px",
+              padding: "10px",
+              borderRadius: "5px",
+              border: "1px solid #ccc",
+              marginBottom: "10px",
+              backgroundColor: "#90caf9",
+              color: "black",
+              cursor: "pointer",
+              fontWeight: "bold",
+              fontSize: "15px",
+            }}
+            onClick={() => setTokenPrice()}
+          >
+            setTokenPrice
+          </button>
+        </div>
+      </div>{" "}
     </div>
   );
 };
