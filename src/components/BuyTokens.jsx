@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { useWriteContract, useDisconnect, useReadContract } from "wagmi";
+import { parseEther, parseUnits } from "viem";
 import { awtokenAbi, awtokenAddress } from "../ABI/awtokenAbi.js";
 import { tokensaleAddress, tokensaleAbi } from "../ABI/tokensaleAbi.js";
 const BuyTokens = () => {
@@ -8,19 +9,26 @@ const BuyTokens = () => {
   const { disconnect } = useDisconnect();
   console.log(amount);
 
-  const tokensLeft = useReadContract({
+  const tokensSold = useReadContract({
     abi: tokensaleAbi,
     address: tokensaleAddress,
     functionName: "getTokenSold",
   });
-  console.log(tokensLeft?.data);
+
+  async function calculateTokensLeft() {
+    try {
+      return 100 - tokensSold?.data;
+    } catch (error) {
+      console.log(error);
+    }
+  }
 
   const whitesaleStatus = useReadContract({
     abi: tokensaleAbi,
     address: tokensaleAddress,
-    functionName: "isWhiteSaleActive",
+    functionName: "isWhitelistSaleActive",
   });
-  console.log(whitesaleStatus?.data);
+  console.log(whitesaleStatus.data);
 
   const saleStatus = useReadContract({
     abi: tokensaleAbi,
@@ -33,13 +41,13 @@ const BuyTokens = () => {
     address: tokensaleAddress,
     functionName: "getTokenPrice",
   });
+  // console.log((tokenPrice?.data).toString());
 
   const pauseStatus = useReadContract({
     abi: tokensaleAbi,
     address: tokensaleAddress,
     functionName: "getPaused",
   });
-  console.log(pauseStatus?.data);
 
   const callBuyWhitesaleTokens = async () => {
     try {
@@ -76,8 +84,12 @@ const BuyTokens = () => {
         alignItems: "center",
       }}
     >
-      <h2>Buy Tokens</h2>
-      <h3>Tokens left: {tokensLeft?.data}</h3>
+      {tokenPrice?.data !== undefined && (
+        <h2>Buy Tokens for {(tokenPrice?.data).toString()} ETH</h2>
+      )}
+      {tokensSold?.data !== undefined && (
+        <h3>Tokens Sold: {(tokensSold?.data).toString()} / 100 </h3>
+      )}
       <div
         style={{
           display: "flex",
@@ -128,7 +140,11 @@ const BuyTokens = () => {
         >
           Disconnect
         </button>
-        <h2>Whitesale is {whitesaleStatus?.data}</h2>
+        {whitesaleStatus?.data ? (
+          <h2>Whitesale is active</h2>
+        ) : (
+          <h2>Whitesale is inactive</h2>
+        )}
       </div>
     </div>
   );
