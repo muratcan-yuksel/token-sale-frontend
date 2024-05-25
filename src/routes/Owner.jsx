@@ -13,10 +13,12 @@ import { Navigate } from "react-router-dom";
 const Owner = () => {
   const { writeContract, status } = useWriteContract();
   const { address, isConnected } = useAccount();
-
-  if (address !== "0x1AF34385343fdf673aedB90A26ee64Bb01e1667D") {
-    return <Navigate to="/" replace />;
-  }
+  const [whitelistAddress, setWhitelistAddress] = useState("");
+  const [tokenState, setTokenState] = useState(5);
+  console.log(address);
+  // if (address !== "0x1AF34385343fdf673aedB90A26ee64Bb01e1667D") {
+  //   return <Navigate to="/" replace />;
+  // }
 
   const toggleWhitelistSaleActive = async () => {
     try {
@@ -73,6 +75,42 @@ const Owner = () => {
         address: tokensaleAddress,
         functionName: "withdrawEth",
         // args: [parseUnits(LPTAmount, 18)],
+      });
+    } catch (error) {
+      console.log(error);
+    }
+  };
+  const addToWhitelist = async () => {
+    try {
+      writeContract({
+        abi: tokensaleAbi,
+        address: tokensaleAddress,
+        functionName: "addToWhitelist",
+        args: [whitelistAddress],
+      });
+    } catch (error) {
+      console.log(error);
+    }
+  };
+  const removeFromWhitelist = async () => {
+    try {
+      writeContract({
+        abi: tokensaleAbi,
+        address: tokensaleAddress,
+        functionName: "removeFromWhitelist",
+        args: [whitelistAddress],
+      });
+    } catch (error) {
+      console.log(error);
+    }
+  };
+  const setTokenPrice = async () => {
+    try {
+      writeContract({
+        abi: tokensaleAbi,
+        address: tokensaleAddress,
+        functionName: "setTokenPrice",
+        args: [tokenState],
       });
     } catch (error) {
       console.log(error);
