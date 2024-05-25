@@ -55,7 +55,7 @@ const BuyTokens = () => {
         abi: tokensaleAbi,
         address: tokensaleAddress,
         functionName: "buyWhitesaleTokens",
-        // args: [parseUnits(LPTAmount, 18)],
+        args: [parseUnits(amount, 18)],
       });
     } catch (error) {
       console.log(error);
@@ -68,7 +68,7 @@ const BuyTokens = () => {
         abi: tokensaleAbi,
         address: tokensaleAddress,
         functionName: "buyTokens",
-        // args: [parseUnits(LPTAmount, 18)],
+        args: [parseUnits(amount, 18)],
       });
     } catch (error) {
       console.log(error);

@@ -15,7 +15,7 @@ const Owner = () => {
   const { address, isConnected } = useAccount();
   const [whitelistAddress, setWhitelistAddress] = useState("");
   const [tokenState, setTokenState] = useState(5);
-  console.log(address);
+  // console.log(address);
   // if (address !== "0x1AF34385343fdf673aedB90A26ee64Bb01e1667D") {
   //   return <Navigate to="/" replace />;
   // }
@@ -26,7 +26,6 @@ const Owner = () => {
         abi: tokensaleAbi,
         address: tokensaleAddress,
         functionName: "toggleWhitelistSaleActive",
-        // args: [parseUnits(LPTAmount, 18)],
       });
     } catch (error) {
       console.log(error);
@@ -38,7 +37,6 @@ const Owner = () => {
         abi: tokensaleAbi,
         address: tokensaleAddress,
         functionName: "toggleSaleActive",
-        // args: [parseUnits(LPTAmount, 18)],
       });
     } catch (error) {
       console.log(error);
@@ -50,7 +48,6 @@ const Owner = () => {
         abi: tokensaleAbi,
         address: tokensaleAddress,
         functionName: "togglePause",
-        // args: [parseUnits(LPTAmount, 18)],
       });
     } catch (error) {
       console.log(error);
@@ -62,7 +59,6 @@ const Owner = () => {
         abi: tokensaleAbi,
         address: tokensaleAddress,
         functionName: "withdrawToken",
-        // args: [parseUnits(LPTAmount, 18)],
       });
     } catch (error) {
       console.log(error);
@@ -74,7 +70,6 @@ const Owner = () => {
         abi: tokensaleAbi,
         address: tokensaleAddress,
         functionName: "withdrawEth",
-        // args: [parseUnits(LPTAmount, 18)],
       });
     } catch (error) {
       console.log(error);
@@ -335,7 +330,7 @@ const Owner = () => {
               }}
               type="number"
               placeholder="tokenPrice"
-              onChange={(e) => setTokenPrice(e.target.value)}
+              onChange={(e) => setTokenState(e.target.value)}
             />
             <button
               style={{
