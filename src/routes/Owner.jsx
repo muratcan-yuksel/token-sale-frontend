@@ -254,6 +254,8 @@ const Owner = () => {
                 boxSizing: "border-box",
               }}
               type="text"
+              placeholder="address"
+              onChange={(e) => setWhitelistAddress(e.target.value)}
             />
             <button
               style={{
@@ -292,6 +294,8 @@ const Owner = () => {
                 boxSizing: "border-box",
               }}
               type="text"
+              placeholder="address"
+              onChange={(e) => setWhitelistAddress(e.target.value)}
             />
             <button
               style={{
@@ -330,6 +334,8 @@ const Owner = () => {
                 boxSizing: "border-box",
               }}
               type="number"
+              placeholder="tokenPrice"
+              onChange={(e) => setTokenPrice(e.target.value)}
             />
             <button
               style={{
