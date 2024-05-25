@@ -3,6 +3,7 @@ import ConnectWallet from "./components/ConnectWallet.jsx";
 import { useReadContract, useAccount, useBalance } from "wagmi";
 const App = () => {
   const { address, status, isConnected } = useAccount();
+  console.log(status);
 
   return (
     <div
@@ -14,8 +15,8 @@ const App = () => {
     >
       {" "}
       <h1>Awesome Token Sale</h1>
-      {status === "connected" && <BuyTokens />}
-      {status !== "connected" && <ConnectWallet />}{" "}
+      {isConnected && <BuyTokens />}
+      {isConnected == false && <ConnectWallet />}{" "}
     </div>
   );
 };
